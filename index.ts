@@ -4,7 +4,8 @@ import { sanitizeWord } from './wordSanitizer';
 import { getLanguage } from './language-detection';
 import { getDictionary } from './dictionary';
 
-const spanishDictionary = getDictionary('es_MX');
+const spanishDictionary = getDictionary('spa');
+const englishDictionary = getDictionary('eng');
 
 
 
