@@ -2,10 +2,7 @@ import { isNumber, readJSON, VALID_WORDS } from './utils';
 import { Screens } from './types';
 import { sanitizeWord } from './wordSanitizer';
 import { getLanguage } from './language-detection';
-import { getDictionary } from './dictionary';
-
-const spanishDictionary = getDictionary('spa');
-const englishDictionary = getDictionary('eng');
+import { checkWord } from './dictionary';
 
 
 
@@ -23,20 +20,24 @@ const englishDictionary = getDictionary('eng');
         if (!title) return;
 
         const language = getLanguage(title);
-
+        if(!language) {
+          console.log(`No se pudo detectar el idioma de "${title}".`);
+          return;
+        }
+        
 
         const words = title.split(' ');
         words.forEach((word) => {
           const sanitizedWord = sanitizeWord(word);
-
           if (!sanitizedWord) return;
+
           if (VALID_WORDS.has(sanitizedWord)) return;
           if (isNumber(sanitizedWord)) return;
 
-          const isCorrect = spanishDictionary.check(sanitizedWord);
+          const isCorrect = checkWord(language, sanitizedWord);
 
           if (!isCorrect) {
-            // console.log(`"${sanitizedWord}" contiene un error ortográfico.`);
+            console.log(`"${sanitizedWord}" contiene un error ortográfico.`);
             errorCount++;
           }
         });

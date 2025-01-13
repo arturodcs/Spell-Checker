@@ -5,7 +5,7 @@ import { LangCode } from "./dictionary";
 const defaultLanguage: LangCode = "spa"
 const validLanguages: Set<LangCode> = new Set(["spa", "eng"])
 
-export const getLanguage = (text: string): LangCode => {
+export const getLanguage = (text: string): LangCode | undefined => {
   const languageDetectionResult = francAll(text);
 
   // return the first valid language detected
@@ -15,5 +15,5 @@ export const getLanguage = (text: string): LangCode => {
     }
   }
 
-  return defaultLanguage;
+  return undefined;
 }
