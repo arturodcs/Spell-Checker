@@ -16,7 +16,27 @@ const getDictionary = (langCode: LangCode) => {
 const spanishDictionary = getDictionary('spa');
 const englishDictionary = getDictionary('eng');
 
-export const checkWord = (language: LangCode, word: string) => {
+
+const validateAgainstAllDictionaries = (word: string) => {
+  const spanishCheck = spanishDictionary.check(word);
+  if (spanishCheck) {
+    return true;
+  }
+
+  const englishCheck = englishDictionary.check(word);
+  if (englishCheck) {
+    return true;
+  }
+
+  return false;
+}
+
+export const isWordCorrect = (language: LangCode | undefined, word: string) => {
+  if(!language) {
+    return validateAgainstAllDictionaries(word);
+  }
+
+
   switch (language) {
     case 'eng':
       return englishDictionary.check(word);
