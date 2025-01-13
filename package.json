@@ -1,0 +1,20 @@
+{
+  "name": "spell-checker",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "ts-node index.ts"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@types/typo-js": "^1.2.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.3"
+  },
+  "dependencies": {
+    "franc-min": "^6.2.0",
+    "typo-js": "^1.2.5"
+  }
+}
