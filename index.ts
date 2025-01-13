@@ -4,11 +4,9 @@ import { sanitizeWord } from './wordSanitizer';
 import { getLanguage } from './language-detection';
 import Typo from 'typo-js';
 import { resolve } from 'node:path';
+import { getDictionary } from './dictionary';
 
-
-const spanishDictionary = new Typo("es_MX", null, null, {
-  dictionaryPath: resolve(__dirname, 'dictionaries'),
-});
+const spanishDictionary = getDictionary('es_MX');
 
 
 
