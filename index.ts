@@ -1,8 +1,8 @@
 import { isNumber, readJSON, VALID_WORDS } from './utils';
 import { Screens } from './types';
 import { sanitizeWord } from './wordSanitizer';
-import { getLanguage } from './language-detection';
 import { isWordCorrect } from './dictionary';
+import {getLanguage } from "./language-detection";
 
 
 (async () => {
