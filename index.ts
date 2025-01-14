@@ -18,9 +18,9 @@ import {getLanguage } from "./language-detection";
         const title = item.propiedades.title;
         if (!title) return;
 
-        const language = getLanguage(title);
+        const language = getLanguage(title, 'languagedetect');
         
-
+        
         const words = title.split(' ');
         words.forEach((word) => {
           const sanitizedWord = sanitizeWord(word);
