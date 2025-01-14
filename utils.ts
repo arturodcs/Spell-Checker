@@ -16,6 +16,20 @@ export const VALID_WORDS = new Set([
   "ID",
   "y/o",
   "CIE",
+  "Sub-Checkbox",
+  "Sub-Input",
+  "Sub-Select",
+  "Sub-Text",
+  "Sub-Radio",
+  "REPSE",
+  "RSE",
+  "KPI",
+  "ESG",
+  "STPS",
+  "C4",
+  "CUIP",
+  "SSP",
+  "RL",
 ]);
 
 

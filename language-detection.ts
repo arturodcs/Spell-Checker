@@ -2,15 +2,15 @@ import { franc, francAll } from "franc-min"
 import { LangCode } from "./dictionary";
 
 
-const defaultLanguage: LangCode = "spa"
 const validLanguages: Set<LangCode> = new Set(["spa", "eng"])
+const minimumAcceptanceRate = 0.9;
+
 
 export const getLanguage = (text: string): LangCode | undefined => {
   const languageDetectionResult = francAll(text);
 
-  // return the first valid language detected
-  for (const [langCode] of languageDetectionResult) {
-    if (validLanguages.has(langCode as LangCode)) {
+  for (const [langCode, percentage] of languageDetectionResult) {
+    if (validLanguages.has(langCode as LangCode) && percentage >= minimumAcceptanceRate) {
       return langCode as LangCode;
     }
   }

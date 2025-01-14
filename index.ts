@@ -5,7 +5,6 @@ import { getLanguage } from './language-detection';
 import { isWordCorrect } from './dictionary';
 
 
-
 (async () => {
   const data = await readJSON('./data/data.json') as Screens;
 
@@ -33,7 +32,7 @@ import { isWordCorrect } from './dictionary';
           const isCorrect = isWordCorrect(language, sanitizedWord);
 
           if (!isCorrect) {
-            console.log(`"${sanitizedWord}" contiene un error ortográfico.`);
+            console.log(`"${sanitizedWord}" contiene un error ortográfico en la oración "${title}", se detectó como ${language}.`);
             errorCount++;
           }
         });
@@ -44,3 +43,4 @@ import { isWordCorrect } from './dictionary';
 
   console.log(`Se encontraron ${errorCount} errores ortográficos.`)
 })()
+
