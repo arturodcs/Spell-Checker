@@ -1,5 +1,5 @@
 import { assert } from "chai";
-import { getLanguage } from "../language-detection";
+import { getLanguage } from "../src/language-detection";
 
 describe('getLanguage', () => {
   it('should detect spanish language', () => {
